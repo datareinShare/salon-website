@@ -263,7 +263,7 @@ p {
 }
 
 .hero-subtitle {
-    font-size: 1.5rem;
+    font-size: 3.0rem;
     margin-bottom: 2rem;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
@@ -1085,4 +1085,80 @@ img {
       padding: 0.9rem 1.1rem;
     }
   }
+
+  /* ===============================
+   Hero Typography Upsize (no color changes)
+   =============================== */
+
+    /* 画面幅に応じてスムーズに拡大（既存指定を上書き） */
+    .hero-title {
+        font-size: clamp(3rem, 8vw, 5.2rem);
+        line-height: 1.1;
+        text-wrap: balance;
+    }
+    .hero-subtitle {
+        font-size: clamp(1.6rem, 4.5vw, 3.4rem);
+        line-height: 1.25;
+        text-wrap: balance;
+        margin-bottom: 2.2rem; /* 予約ボタン削除後の余白を微調整 */
+    }
+
+    /* スマホ時も“以前より大きめ”に */
+    @media (max-width: 768px) {
+        .hero-title {
+        font-size: clamp(2.6rem, 8.5vw, 3.2rem);
+        }
+        .hero-subtitle {
+        font-size: clamp(1.4rem, 5vw, 2rem);
+        margin-bottom: 1.6rem;
+        }
+    }
+
+    /* 超小画面でも読みやすいサイズに */
+    @media (max-width: 480px) {
+        .hero-title {
+        font-size: clamp(2.4rem, 9vw, 2.8rem);
+        }
+        .hero-subtitle {
+        font-size: clamp(1.3rem, 5.8vw, 1.8rem);
+        margin-bottom: 1.4rem;
+        }
+    }
+  
+    /* ---- Force 2-line hero title (no color changes) ---- */
+    .hero-title { line-height: 1.15; }
+    .hero-title > span {
+    display: block;          /* 各行を必ず改行 */
+    }
+
+    /* 文字が極端に詰まるのを防ぐ（日本語向けの行分割を厳格に） */
+    .hero-title {
+    line-break: strict;
+    word-break: keep-all;    /* 不要な途中改行を抑止（spanで確実に改行） */
+    }
+
+    /* スマホでの見栄え（任意：少しだけ行間を広めに） */
+    @media (max-width: 768px) {
+    .hero-title { line-height: 1.2; }
+    }
+
+    /* ===== Logo as Script Font (no color changes) ===== */
+    .logo a {
+        /* 英字は Great Vibes、和文は Yomogi へフォールバック */
+        font-family: 'Great Vibes', 'Yomogi', 'Montserrat', 'Noto Sans JP', cursive, sans-serif;
+        font-weight: 400;            /* 筆記体は太字より通常が綺麗 */
+        letter-spacing: 0.02em;      /* ほんの少しだけ字間を広げる */
+        line-height: 1.1;
+        display: inline-block;
+        /* 画面幅に応じて自然に拡大（既存 1.5rem を上書き） */
+        font-size: clamp(1.4rem, 3.2vw, 2.2rem);
+    }
+    
+    @media (max-width: 768px) {
+        .logo a {
+        font-size: clamp(1.3rem, 5vw, 1.8rem);
+        }
+    }
+  
+
   
