@@ -1159,6 +1159,78 @@ img {
         font-size: clamp(1.3rem, 5vw, 1.8rem);
         }
     }
+
+    /* ===== PRODUCTセクションを中央基準に揃える ===== */
+
+    /* セクション全体の器を中央に */
+    .about-detail-section .menu-detail-card {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    /* 2カラム指定を1カラムに上書きし、要素を中央寄せ */
+    .about-detail-section .menu-detail-content {
+        display: grid;                 /* 既存と同じ指定でOK */
+        grid-template-columns: 1fr !important; /* ← ここがポイント */
+        justify-items: center;         /* 子要素を中央に */
+    }
+    
+    /* テキストブロック自体を中央に（幅を制御） */
+    .about-detail-section .menu-detail-text {
+        width: min(800px, 100%);
+        margin: 0 auto;                /* ブロックを中央 */
+        text-align: left;              /* 文章は左揃えのまま */
+    }
+    
+    /* 画像は常に中央に */
+    .about-detail-section .menu-detail-text img,
+    .about-detail-section .price-product img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        margin: 0 auto;
+    }
+    
+    /* まれな横スクロール対策 */
+    html, body { overflow-x: hidden; }
+
+    /* ===== ご予約・お問い合わせセクションを中央寄せ ===== */
+    .cta-section {
+        max-width: 1200px;
+        margin: 0 auto;       /* ページ中央に配置 */
+        padding: 0 20px;
+        text-align: center;   /* 見出しやテキストを中央揃え */
+        margin-bottom: 40px; /* ← この行を追加/調整 */
+    }
+    
+    .cta-section h2,
+    .cta-section p {
+        text-align: center;   /* 見出しや文章も中央寄せ */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    /* フォームやボタンを中央に */
+    .cta-section form,
+    .cta-section .cta-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;  /* 複数ボタンがある場合の間隔 */
+        flex-wrap: wrap;
+    }
+    
+    .cta-section form input,
+    .cta-section form textarea {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+  
+  
+  
+      
+  
   
 
   
